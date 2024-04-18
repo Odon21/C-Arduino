@@ -1,4 +1,4 @@
-#include <Wire.h>
+#include <Wire.h> // Importas a pibilhoteca para configuracao de pinos na cominocacao I2C
 
 void setup() {
   //Wire.setClock(400000); // Define a velocidade de comunicação I2C para 400 kHz
