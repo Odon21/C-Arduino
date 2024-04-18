@@ -1,32 +1,32 @@
 #include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-#include <SPI.h>
-#include <WiFi.h>
+#include <LiquidCrystal_I2C.h>  // biblhoteca para definirmos pinos digitais para comnicacao I2C
+#include <SPI.h>                // Tabem vamos pressar da SPI
+#include <WiFi.h>               // Essa e a bilhoteca princimpal para o Scan de redes wifi
 
-LiquidCrystal_I2C lcd(0x27, 20, 4);
+LiquidCrystal_I2C lcd(0x27, 20, 4);  // DEfinimos o endereco do nonso periferico na comunicacao I2C no Numero de colunas e o numero de linhas
 
-void printEncryptionType();
-void listNetworks();
-void printMacAddress();
+void printEncryptionType();      // Aqui esta a inicializacao da funcao que se responsabiliza por ver i tipo ade criptogradi disponivel
+void listNetworks();              // Funcao que lista as redes
+void printMacAddress();           // Funcao que lista os enderecos MACs de cada rede
 int x;
 
 void setup() {
   //pinMode(4, OUTPUT);
   // put your setup code here, to run once:
-  Wire.begin(14, 15);
-  lcd.begin(20, 4);
-  lcd.init();
-  lcd.backlight();
-  lcd.setCursor(0,0);
+  Wire.begin(14, 15);      // Aquie definimos os pinos para ligarmos o LCD liquidCrsytal SDA e SCL
+  lcd.begin(20, 4);        // Inicializamos a comunicacao para lcd de 20 colunas em cada 4 linhas
+  lcd.init();              // Inicializamos o lcd
+  lcd.backlight();         // Ligamos a liz de fundo do LCD
+  lcd.setCursor(0,0);      // Colocamos o cursor na linha 0 e coluna 0
   //analogWrite(4, 150);
-  delay(1000);
+  delay(1000);            
   //analogWrite(4, 1);
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  listNetworks();
+  listNetworks();    // no loop vamos rodat o metodo que faz o sacn das redes...
 }
 void listNetworks() {
   // scan for nearby networks:
